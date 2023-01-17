@@ -13,7 +13,7 @@
 
 </br>
 
-## Overview
+## Description
 
 This challenge presents a real-world situation in which the newfound JavaScript skills will come in handy. The code has been built to generate a random password based on criteria they've been selected. This includes length of the password, and character types (lowercased, uppercased, numeric, and [special characters](https://www.owasp.org/index.php/Password_special_characters)). The application can be run in the browser and has been designed to adapt to multiple screen sizes.
 
