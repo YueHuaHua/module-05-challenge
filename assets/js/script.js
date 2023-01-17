@@ -90,7 +90,60 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // variable to store length of password from user input
+  let length = parseInt(
+    prompt("How many characters would you like your password to contain?")
+  )
+  
+  if(isNaN(length) === true){
+    alert(`Password length must be provided as number`);
+  }
 
+  if(length < 10){
+    alert(`Password length must be at least 10 characters`);
+    return;
+  }
+  
+  if(length > 65){
+    alert(`Password length must be less than 64 characters`);
+    return;
+  }
+
+  let hasSpecialCharacters = confirm(
+    "Click OK to confirm including special characters"
+  )
+
+  let hasNumericCharacters = confirm(
+    "Click OK to confirm including numeric characters"
+  )
+
+  let hasLowerCasedCharacters = confirm(
+    "Click OK to confirm including lowercase characters"
+  )
+
+  let hasUpperCasedCharacters = confirm(
+    "Click OK to confirm including uppercase characters"
+  )
+
+  if(hasLowerCasedCharacters === false &&
+    hasUpperCasedCharacters === false &&
+    hasNumericCharacters === false &&
+    hasSpecialCharacters === false){
+      alert(`Must select at least one character type`);
+      return;
+    }
+
+    let passwordOptions = {
+      length : length,
+      hasLowerCasedCharacters: hasLowerCasedCharacters,
+      hasUpperCasedCharacters: hasUpperCasedCharacters,
+      hasNumericCharacters: hasNumericCharacters,
+      hasSpecialCharacters: hasSpecialCharacters
+    }
+
+    console.log(passwordOptions);
+
+    return passwordOptions;
 }
 
 // Function for getting a random element from an array
