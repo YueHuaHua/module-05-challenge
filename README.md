@@ -42,21 +42,21 @@ Once the "Generate Password" button is clicked, a user will be presented a serie
 #### a. Password Length
 After clicking the button, password length prompt appears first. The user is required to answer this section by inputting a number. The length of password should be at least 10 characters but no more than 64. 
 
-![password length demo](./assets/img/readme-04-length-criteria.gif)
+![password length demo](./assets/img/readme-03-length-criteria.gif)
 
 </br>
 
 #### b. Password Character Type Options
 Once the length of password is defined, a series of prompt asking for character type appears next. Here, the user can selects the character types by selecting `OK` for yes and `Cancel` for no. The available characters are lowercase, uppercase, numeric, and [special characters](https://www.owasp.org/index.php/Password_special_characters). It is important to choose at least one type of character. Finally, the password will be generated once users selecting all criteria options.
 
-![password length demo](./assets/img/readme-05-character-criteria.gif)
+![password length demo](./assets/img/readme-04-character-criteria.gif)
 
 </br>
 
 ### Error Handling
 As mentioned before, there are few rules that need to follow. The application should not accept any password length less than 10 and longer than 64. Hence, an alert box appears whenever users input an incorrect number.
 
-![incorrect password length alert box](./assets/img/readme-06-length-alert-box-01.JPG)
+![incorrect password length alert box](./assets/img/readme-05-length-alert-box-01.JPG)
 
 </br>
 
@@ -86,7 +86,7 @@ However, as  `return` means jumping out from the `getPasswordOptions()` function
 
 Another rule is the length of password input cannot be anything other than a number. Hence, another alert box also appears whenever users input an incorrect type.
 
-![incorrect password length input type alert box](./assets/img/readme-07-length-alert-box-02.JPG)
+![incorrect password length input type alert box](./assets/img/readme-06-length-alert-box-02.JPG)
 
 </br>
 
