@@ -90,11 +90,13 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  // variable to store length of password from user input
+  
+  // Variable to store length of password from user input
   let length = parseInt(
     prompt("How many characters would you like your password to contain?")
   )
   
+  // Conditioning
   if(isNaN(length) === true){
     alert(`Password length must be provided as number`);
   }
@@ -109,6 +111,7 @@ function getPasswordOptions() {
     return;
   }
 
+  // Selecting character type options
   let hasSpecialCharacters = confirm(
     "Click OK to confirm including special characters"
   )
@@ -124,7 +127,8 @@ function getPasswordOptions() {
   let hasUpperCasedCharacters = confirm(
     "Click OK to confirm including uppercase characters"
   )
-
+  
+  // Exception
   if(hasLowerCasedCharacters === false &&
     hasUpperCasedCharacters === false &&
     hasNumericCharacters === false &&
@@ -132,14 +136,14 @@ function getPasswordOptions() {
       alert(`Must select at least one character type`);
       return;
     }
-
-    let passwordOptions = {
-      length : length,
-      hasLowerCasedCharacters: hasLowerCasedCharacters,
-      hasUpperCasedCharacters: hasUpperCasedCharacters,
-      hasNumericCharacters: hasNumericCharacters,
-      hasSpecialCharacters: hasSpecialCharacters
-    }
+  
+  let passwordOptions = {
+    length : length,
+    hasLowerCasedCharacters: hasLowerCasedCharacters,
+    hasUpperCasedCharacters: hasUpperCasedCharacters,
+    hasNumericCharacters: hasNumericCharacters,
+    hasSpecialCharacters: hasSpecialCharacters
+  }
 
     console.log(passwordOptions);
 
@@ -156,36 +160,40 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+
+  // Create a new variable to store a value from getPasswordOptions function
   let options = getPasswordOptions();
 
-  console.log(options);
-
+  // Create new arrays to store obtained characters
   let result = [];
-
   let possibleCharacter = [];
-
   let guaranteedCharacter = [];
 
+  // Adding lowercased characters if lowercased option is selected
   if(options.hasLowerCasedCharacters){
     possibleCharacter = possibleCharacter.concat(lowerCasedCharacters)
     guaranteedCharacter.push(getRandom(lowerCasedCharacters))
   }
   
+  // Adding uppercased characters if uppercased option is selected
   if(options.hasUpperCasedCharacters){
     possibleCharacter = possibleCharacter.concat(upperCasedCharacters)
     guaranteedCharacter.push(getRandom(upperCasedCharacters))
   }
 
+  // Adding numeric characters if numeric characters option is selected
   if(options.hasNumericCharacters){
     possibleCharacter = possibleCharacter.concat(numericCharacters)
     guaranteedCharacter.push(getRandom(numericCharacters))
   }
 
+  // Adding special characters if special characters option is selected
   if(options.hasSpecialCharacters){
     possibleCharacter = possibleCharacter.concat(specialCharacters)
     guaranteedCharacter.push(getRandom(specialCharacters))
   }
 
+  // Generating and Inserting characters into result array based on the password length input
   for(let i = 0; i < options.length; i++){
     var generatedPassword = getRandom(possibleCharacter);
 
@@ -194,6 +202,7 @@ function generatePassword() {
 
   console.log(result);
 
+  // Converting array values into a string
   return result.join("");
 }
 
